@@ -1,0 +1,31 @@
+# Project: Lab6
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = Lab6.o Stroka.o
+LINKOBJ  = Lab6.o Stroka.o
+LIBS     = -L"D:/IDE/Dev-Cpp/TDM-GCC-64/lib" -L"D:/IDE/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"D:/IDE/Dev-Cpp/TDM-GCC-64/include" -I"D:/IDE/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/IDE/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"D:/IDE/Dev-Cpp/TDM-GCC-64/include" -I"D:/IDE/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/IDE/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"D:/IDE/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = Lab6.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+DEL      = D:\IDE\Dev-Cpp\DevCpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Lab6.o: Lab6.cpp
+	$(CPP) -c Lab6.cpp -o Lab6.o $(CXXFLAGS)
+
+Stroka.o: Stroka.cpp
+	$(CPP) -c Stroka.cpp -o Stroka.o $(CXXFLAGS)
